@@ -1,44 +1,34 @@
 import React, { useState } from "react";
-import s from "./RegistrationForm.module.css";
+import s from "./LoginForm.module.css";
 import { Input } from "../../../shared/ui/Input/Input";
 import { Button } from "../../../shared/ui/Button/Button";
 import { Modal } from "../../../shared/ui/Modal/Modal";
-import { useSignUp } from "../lib/useSignUp";
+import { useSignIn } from "../lib/useSignIn";
 import { useNavigate } from "react-router-dom";
 
-export function RegistrationForm() {
-  const navigate = useNavigate()
-  const { formData, handleInputChange, handleSubmit, isLoading, error } = useSignUp();
+export function LoginForm() {
+  const navigate = useNavigate();
+  const { formData, handleInputChange, handleSubmit, isLoading, error } = useSignIn();
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
 
   const onSubmit = async (e) => {
     try {
       const result = await handleSubmit(e);
-      console.log('Регистрация успешна:', result);
+      console.log('Вход выполнен успешно:', result);
       setIsSuccessModalOpen(true);
     } catch (error) {
-      console.error('Ошибка при регистрации:', error);
+      console.error('Ошибка при входе:', error);
     }
   };
 
-  const handleOpenLogin = () => {
-    navigate("/login").then(()=> setIsSuccessModalOpen(false) )
+  const handleOpenRegistration = () => {
+    navigate("/calculator").then(() => setIsSuccessModalOpen(false));
   };
 
   return (
     <>
       <form className={s.form} onSubmit={onSubmit}>
         {error && <div className={s.error}>{error}</div>}
-        <div className={s.inputGroup}>
-          <Input
-            placeholder='Имя пользователя'
-            name='username'
-            value={formData.username}
-            onChange={handleInputChange}
-            disabled={isLoading}
-            required
-          />
-        </div>
         <div className={s.inputGroup}>
           <Input
             placeholder='Email'
@@ -61,36 +51,25 @@ export function RegistrationForm() {
             required
           />
         </div>
-        <div className={s.inputGroup}>
-          <Input
-            placeholder='Подтвердите пароль'
-            type='password'
-            name='confirmPassword'
-            value={formData.confirmPassword}
-            onChange={handleInputChange}
-            disabled={isLoading}
-            required
-          />
-        </div>
         <Button type='submit' variant='primary' fullWidth disabled={isLoading}>
-          {isLoading ? 'Регистрация...' : 'Зарегистрироваться'}
+          {isLoading ? 'Вход...' : 'Войти'}
         </Button>
       </form>
 
       <Modal 
         isOpen={isSuccessModalOpen} 
         onClose={() => setIsSuccessModalOpen(false)}
-        title="Регистрация успешна"
+        title="Вход выполнен"
       >
-        <p>Вы успешно зарегистрировались!</p>
+        <p>Вы успешно вошли в систему!</p>
         <Button 
           variant='primary' 
           fullWidth 
-          onClick={handleOpenLogin}
+          onClick={handleOpenRegistration}
         >
-          Войти в аккаунт
+          Зарегистрироваться
         </Button>
       </Modal>
     </>
   );
-}
+} 
