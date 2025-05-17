@@ -1,0 +1,23 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+  
+.inputGroup {
+    width: 100%;
+}
+
+.error {
+    color: #ff4d4f;
+    background-color: #fff2f0;
+    border: 1px solid #ffccc7;
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+  
