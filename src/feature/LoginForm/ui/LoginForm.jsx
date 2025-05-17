@@ -67,7 +67,7 @@ export function LoginForm() {
           fullWidth 
           onClick={handleOpenRegistration}
         >
-          Зарегистрироваться
+          Вход
         </Button>
       </Modal>
     </>

@@ -25,14 +25,26 @@ export const Header = () => {
                 Калькулятор
               </Link>
               <Link to="/history" className={`${s.link} ${isActive('/history')}`}>
-                История
+                История расчетов
+              </Link>
+              <Link to="/admin/factories" className={`${s.link} ${isActive('/admin/factories')}`}>
+                Фабрики
+              </Link>
+              <Link to="/admin/plants" className={`${s.link} ${isActive('/admin/plants')}`}>
+                Заводы
+              </Link>
+              <Link to="/admin/tariffs" className={`${s.link} ${isActive('/admin/tariffs')}`}>
+                Тарифы
               </Link>
               <Link to="/about" className={`${s.link} ${isActive('/about')}`}>
-                О нас
+                О системе
               </Link>
             </>
           ) : (
             <>
+              <Link to="/about" className={`${s.link} ${isActive('/about')}`}>
+                О системе
+              </Link>
               <Link to="/login" className={`${s.link} ${isActive('/login')}`}>
                 Войти
               </Link>

@@ -9,7 +9,13 @@ export const loginApi = transportApi.injectEndpoints({
         body,
       }),
     }),
+    authMe: build.mutation({
+      query: () => ({
+        method: "GET",
+        url: "/auth/me",
+      }),
+    }),
   }),
 });
 
-export const { useLoginMutation } = loginApi;
+export const { useLoginMutation, useAuthMeMutation } = loginApi;

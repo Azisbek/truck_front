@@ -1,11 +1,9 @@
 import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 
-// import { NotFoundScreen } from "shared/ui/not-found-screen";
-
 import { PageLayout } from "../shared/ui/PageLayout/PageLayout";
-// import { authLoader } from "./authLoader";
 import { Redirect } from "./Redirect";
+import { meLoader } from "./lib/meLoader";
 
 const Login = lazy(() => import("../pages/login/Login"));
 const Registration = lazy(() => import("../pages/registration/Registration"));
@@ -58,7 +56,7 @@ export const router = createBrowserRouter([
           },
         ].map((config) => ({
           ...config,
-          //   loader: authLoader,
+          loader: meLoader,
         })),
       },
     ],

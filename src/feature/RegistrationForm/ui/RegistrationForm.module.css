@@ -5,11 +5,11 @@
     width: 100%;
     max-width: 400px;
     margin: 0 auto;
-}
+  }
   
-.inputGroup {
+  .inputGroup {
     width: 100%;
-}
+  }
 
 .error {
     color: #ff4d4f;

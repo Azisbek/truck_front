@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useLoginMutation } from "../api";
+import TokenService from "../../../shared/lib/TokenService";
 
 export const useSignIn = () => {
   const [login, { isLoading: isLoginLoading }] = useLoginMutation();
@@ -39,6 +40,7 @@ export const useSignIn = () => {
       };
 
       const result = await login(submitData).unwrap();
+      TokenService.setToken(result.access_token)
       return result;
     } catch (err) {
       setError(err.message || "Ошибка при входе");

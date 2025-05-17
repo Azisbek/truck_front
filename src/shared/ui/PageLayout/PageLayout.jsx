@@ -8,7 +8,7 @@ export const PageLayout = () => {
     <div className={s.layout}>
       <Header />
       <main className={s.main}>
-        <Outlet />
+      <Outlet />
       </main>
     </div>
   );
