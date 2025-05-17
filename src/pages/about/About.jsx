@@ -1,10 +1,7 @@
 import React from "react";
 import styles from "./About.module.css";
-import { useSelector } from "react-redux";
 
 function About() {
-  const user = useSelector((state)=>state.accountSlice.user)
-  console.log(user)
   return (
     <div className={styles.container}>
       <section className={styles.hero}>
