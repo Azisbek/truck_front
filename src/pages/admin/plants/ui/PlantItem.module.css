@@ -1,0 +1,31 @@
+.plantItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.info {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.tons {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
