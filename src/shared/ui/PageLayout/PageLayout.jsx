@@ -1,9 +1,15 @@
-import { Outlet } from "react-router-dom";
+import React from 'react';
+import { Outlet } from 'react-router-dom';
+import { Header } from '../Header/Header';
+import s from './PageLayout.module.css';
 
-export function PageLayout() {
+export const PageLayout = () => {
   return (
-    <div>
-      <Outlet />
+    <div className={s.layout}>
+      <Header />
+      <main className={s.main}>
+        <Outlet />
+      </main>
     </div>
   );
-}
+};
