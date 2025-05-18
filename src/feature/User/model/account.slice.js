@@ -8,6 +8,7 @@ const initialState = {
 
 const actionSetUser = (state, { payload }) => {
   state.user = {
+    id: payload._id,
     username: payload.username,
     email: payload.email,
     role: payload.role,
@@ -29,6 +30,7 @@ export const accountSlice = createSlice({
         (state, { payload }) => {
           TokenStorageService.setToken(payload.access_token);
           state.user = {
+            id: payload._id,
             username: payload.username,
             email: payload.email,
             role: payload.role,

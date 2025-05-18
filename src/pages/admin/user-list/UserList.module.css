@@ -1,0 +1,82 @@
+.container {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: #2c3e50;
+}
+
+.content {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tableHeader {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.tableHeader th {
+  padding: 16px;
+  text-align: left;
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 14px;
+}
+
+.tableRow {
+  border-bottom: 1px solid #e9ecef;
+  transition: background-color 0.2s ease;
+}
+
+.tableRow:hover {
+  background-color: #f8f9fa;
+}
+
+.tableRow td {
+  padding: 16px;
+  color: #2c3e50;
+  font-size: 14px;
+}
+
+.role {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.roleAdmin {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+.roleClient {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.loading {
+  padding: 24px;
+  text-align: center;
+  color: #7f8c8d;
+}
+
+.empty {
+  padding: 24px;
+  text-align: center;
+  color: #7f8c8d;
+}

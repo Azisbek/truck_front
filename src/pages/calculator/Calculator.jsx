@@ -6,8 +6,10 @@ import {
   useSubmitCalcMutation,
 } from "./api";
 import { Input } from "../../shared/ui/Input/Input";
+import { useSelector } from "react-redux";
 
 function Calculator() {
+  const userId = useSelector((state) => state.accountSlice.user?.id);
   const { data: factories } = useGetFactoryQuery();
   const { data: wordshops } = useGetWorkshopsQuery();
 
@@ -39,13 +41,19 @@ function Calculator() {
   };
 
   const handleSubmit = async () => {
+    if (!userId) {
+      console.error("User ID is not available");
+      return;
+    }
+
     try {
       const result = await submitCalc({
+        userId: userId,
         suppliers: factories.map((f) => f.tons),
         consumers: wordshops.map((w) => w.tons),
         costMatrix: costMatrix,
         method: "northwest",
-        name: "Тестовая задача",
+        name: taskName || "Без названия",
       }).unwrap();
       setResult(result);
     } catch (error) {
@@ -112,7 +120,7 @@ function Calculator() {
         </div>
         {result && (
           <div className={styles.resultInfo}>
-            <p>Общая стоимость: {result.totalCost}</p>
+            <p>Общая стоимость: {result.totalCost} KGS</p>
             <p>Сбалансированная задача: {result.balanced ? "Да" : "Нет"}</p>
           </div>
         )}

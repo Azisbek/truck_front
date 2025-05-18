@@ -1,6 +1,6 @@
 import { transportApi } from "../../../store/transportApi";
 
-export const workshopApi = transportApi.injectEndpoints({
+export const calculationApi = transportApi.injectEndpoints({
   endpoints: (build) => ({
     getWorkshops: build.query({
       query: () => ({
@@ -26,5 +26,8 @@ export const workshopApi = transportApi.injectEndpoints({
   }),
 });
 
-export const { useGetWorkshopsQuery, useGetFactoryQuery, useSubmitCalcMutation } =
-  workshopApi;
+export const {
+  useGetWorkshopsQuery,
+  useGetFactoryQuery,
+  useSubmitCalcMutation,
+} = calculationApi;
